@@ -15,7 +15,7 @@ class StoriesData {
   late String? hint;
   late String? image;
   late String? url;
-  late String? ga_prefix;
+  late String? gaPrefix;
 
   StoriesData({
     this.id,
@@ -23,7 +23,7 @@ class StoriesData {
     this.hint,
     this.image,
     this.url,
-    this.ga_prefix,
+    this.gaPrefix,
   });
 
   factory StoriesData.fromJson(Map<String, dynamic> json) => StoriesData(
@@ -32,7 +32,7 @@ class StoriesData {
         hint: json['hint'],
         image: json['images'][0],
         url: json['url'],
-        ga_prefix: json['ga_prefix'],
+        gaPrefix: json['ga_prefix'],
       );
 
   factory StoriesData.fromJsonInside(Map<String, dynamic> json) => StoriesData(
@@ -41,7 +41,7 @@ class StoriesData {
         hint: json['hint'],
         image: json['image'],
         url: json['url'],
-        ga_prefix: json['ga_prefix'],
+        gaPrefix: json['ga_prefix'],
       );
 
   Map<String, dynamic> toJson() => {
@@ -50,6 +50,6 @@ class StoriesData {
         'hint': hint,
         'image': image,
         'url': url,
-        'ga_prefix': ga_prefix
+        'gaPrefix': gaPrefix
       };
 }
