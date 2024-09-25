@@ -1,0 +1,49 @@
+name: zhihu
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: ^3.5.3
+
+dependencies:
+  flutter:
+    sdk: flutter
+
+  riverpod: ^2.5.1
+  floor: ^1.5.0
+  cached_network_image: ^3.4.1 # 图片缓存
+  flutter_screenutil: ^5.9.3 # 屏幕适配
+  url_launcher: ^6.3.0 # url跳转
+  share_plus: ^10.0.2 # 分享
+  dio: ^5.6.0 # 网络请求
+  loading_animation_widget: ^1.2.1 # 加载动画
+  auto_size_text: ^3.0.0 # 文本自适应
+  gap: ^3.0.1 # 间隔
+  intl: ^0.19.0 # 国际化
+  flutter_smart_dialog: ^4.9.8 # 弹窗
+  easy_refresh: ^3.3.2+1 # 刷新
+  flutter_inappwebview: ^6.0.0
+  go_router: ^14.2.7
+  hive: ^2.2.3
+
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^4.0.0
+
+  flutter_launcher_icons: ^0.13.1 # 应用图标生成
+  # 本地数据库
+  floor_generator: ^1.5.0
+  build_runner: ^2.4.12
+
+# 应用图标生成
+flutter_launcher_icons:
+  android: "launcher_icon"
+  min_sdk_android: 21
+  ios: true
+  image_path: "assets/images/icon/daily.zhihu-1024x1024.png"
+
+flutter:
+  uses-material-design: true
+
