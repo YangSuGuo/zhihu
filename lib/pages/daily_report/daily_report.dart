@@ -1,6 +1,8 @@
 import 'package:easy_refresh/easy_refresh.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:zhihu/http/api/stories_model.dart';
 import 'package:zhihu/model/stories_model.dart';
 import 'package:zhihu/widget/list.dart';
 
@@ -18,15 +20,21 @@ class _DailyReportState extends ConsumerState<DailyReport> {
   @override
   void initState() {
     super.initState();
+    dateTime = dateTime.subtract(const Duration(days: 1));
+    initialData();
+  }
+
+  Future<void> initialData() async {
+    final newItems = await ref.read(getListProvider.future);
+    final oldItems = await ref.read(getOldListProvider(dateTime).future);
+    // 更新状态
+    setState(() {
+      items = [...newItems, ...oldItems];
+    });
   }
 
   @override
   Widget build(BuildContext context) {
-    return _buildList();
-  }
-
-  // bodyList
-  Widget _buildList() {
     return EasyRefresh(
         header: const ClassicHeader(
           hapticFeedback: true,
@@ -44,9 +52,25 @@ class _DailyReportState extends ConsumerState<DailyReport> {
         ),
         onRefresh: () async {
           // 下拉刷新
+          final newItems = await ref.read(getListProvider.future);
+          final oldIds = items
+              .map((StoriesData item) => item.id)
+              .toList()
+              .sublist(0, newItems.length);
+          final newIds = newItems.map((StoriesData item) => item.id).toList();
+          if (!listEquals(oldIds, newIds)) {
+            setState(() {
+              items.replaceRange(0, newIds.length, newItems);
+            });
+          }
         },
         onLoad: () async {
           // 上拉加载
+          final moreItems = await ref.read(getOldListProvider(dateTime).future);
+          dateTime = dateTime.subtract(const Duration(days: 1));
+          setState(() {
+            items.addAll(moreItems);
+          });
         },
         child: ListView.builder(
           itemCount: items.length,
@@ -55,7 +79,7 @@ class _DailyReportState extends ConsumerState<DailyReport> {
                 padding: const EdgeInsets.only(left: 5, right: 5, bottom: 2),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: () async {},
+                  onTap: () {},
                   child: Item(item: items[index]),
                 ));
           },

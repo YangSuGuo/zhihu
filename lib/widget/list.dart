@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:zhihu/model/stories_model.dart';
+import 'package:zhihu/widget/network_img.dart';
 
 class Item extends StatelessWidget {
   const Item({
@@ -43,18 +44,13 @@ class Item extends StatelessWidget {
                         ))
                       ])))),
       if (item.image != null)
-        Card(
-            clipBehavior: Clip.antiAliasWithSaveLayer,
-            elevation: 0.0,
-            shape: const RoundedRectangleBorder(
-                borderRadius: BorderRadius.all(Radius.circular(2.0))),
-            child: FadeInImage.assetNetwork(
-              placeholder: 'assets/image/loading.gif',
-              image: item.image!,
-              fit: BoxFit.cover,
-              width: 80,
-              height: 80,
-            ))
+        NetworkImg(
+          src: item.image,
+          width: 80,
+          height: 80,
+          radius: 2.0,
+          fit: BoxFit.cover,
+        )
     ]);
   }
 }

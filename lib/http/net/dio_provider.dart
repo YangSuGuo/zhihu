@@ -5,7 +5,7 @@ import 'package:zhihu/http/net/logger_interceptor.dart';
 
 part 'dio_provider.g.dart';
 
-@riverpod
+@Riverpod(keepAlive: true)
 Dio dio(DioRef ref) {
   final dio = Dio(BaseOptions(
       baseUrl: "https://news-at.zhihu.com/api/4/",
