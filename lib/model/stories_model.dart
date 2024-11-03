@@ -1,5 +1,8 @@
 import 'dart:convert';
 
+import 'package:zhihu/db/database/entity/history.dart';
+import 'package:zhihu/db/database/entity/stars.dart';
+
 StoriesData storiesDataFromJson(String str) =>
     StoriesData.fromJson(json.decode(str));
 
@@ -52,4 +55,26 @@ class StoriesData {
         'url': url,
         'gaPrefix': gaPrefix
       };
+
+  Stars toStars(String readingTime) {
+    return Stars(
+        id: id,
+        title: title,
+        hint: hint,
+        image: image,
+        url: url,
+        gaPrefix: gaPrefix,
+        readingTime: readingTime);
+  }
+
+  History toHistory(String readingTime) {
+    return History(
+        id: id,
+        title: title,
+        hint: hint,
+        image: image,
+        url: url,
+        gaPrefix: gaPrefix,
+        readingTime: readingTime);
+  }
 }

@@ -31,16 +31,15 @@ dependencies:
   easy_refresh: ^3.3.2+1 # 刷新
   flutter_inappwebview: ^6.0.0 # webview
   go_router: ^14.2.7 # 路由
-
   dynamic_color: any # 动态取色
-
+  page_route_animator: ^1.0.4 # 页面过渡动画
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
+  flutter_lints: ^5.0.0
 
-  flutter_launcher_icons: ^0.13.1 # 应用图标生成
+  flutter_launcher_icons: ^0.14.1 # 应用图标生成
   # 本地数据库
   floor_generator: ^1.5.0
 

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zhihu/widget/doubleCheckConfirmation.dart';
 import 'package:zhihu/widget/init.dart';
 
 class Main extends StatelessWidget {
@@ -14,12 +13,10 @@ class Main extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DoubleCheckConfirmation(
-        child: Init(
-      child: Scaffold(
-        appBar: appBar,
-        body: body,
-      ),
+    return Init(
+        child: Scaffold(
+      appBar: appBar,
+      body: body,
     ));
   }
 }

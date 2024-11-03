@@ -2,8 +2,12 @@ import 'package:easy_refresh/easy_refresh.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:go_router/go_router.dart';
+import 'package:zhihu/db/database/dao/history_dao.dart';
+import 'package:zhihu/db/database/entity/history.dart';
 import 'package:zhihu/http/api/stories_model.dart';
 import 'package:zhihu/model/stories_model.dart';
+import 'package:zhihu/routes/app_routes.dart';
 import 'package:zhihu/widget/list.dart';
 
 class DailyReport extends ConsumerStatefulWidget {
@@ -79,7 +83,16 @@ class _DailyReportState extends ConsumerState<DailyReport> {
                 padding: const EdgeInsets.only(left: 5, right: 5, bottom: 2),
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
-                  onTap: () {},
+                  onTap: () {
+                    final History history =
+                        items[index].toHistory(DateTime.now().toString());
+                    ref.read(insertSubjectsHistoryProvider(history));
+                    context.pushNamed(
+                      RoutePath.bodyContent,
+                      pathParameters: {"id": items[index].id.toString()},
+                      extra: items[index],
+                    );
+                  },
                   child: Item(item: items[index]),
                 ));
           },
