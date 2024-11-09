@@ -70,15 +70,12 @@ class OperateBar extends StatelessWidget {
                       size: 28,
                     ),
                     splashColor: Colors.transparent,
-                    color: stars
-                        ? Colors.deepOrange
-                        : Theme.of(context).colorScheme.onSurface,
+                    color: stars ? Colors.deepOrange : Theme.of(context).colorScheme.onSurface,
                     onPressed: () => onStarChange(!stars),
                   ),
                   // 刷新按钮
                   RotationTransition(
-                      turns:
-                          CurvedAnimation(parent: ctrl, curve: Curves.linear),
+                      turns: CurvedAnimation(parent: ctrl, curve: Curves.linear),
                       child: IconButton(
                         icon: const Icon(Icons.loop),
                         onPressed: () {

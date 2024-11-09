@@ -45,18 +45,15 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                       key: state.pageKey,
                       barrierDismissible: true,
                       transitionDuration: const Duration(milliseconds: 300),
-                      reverseTransitionDuration:
-                          const Duration(milliseconds: 300),
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
+                      reverseTransitionDuration: const Duration(milliseconds: 300),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         return PageRouteAnimator(
                           child: child,
                           routeAnimation: RouteAnimation.rightToLeft,
                           curve: Curves.linear,
                           duration: const Duration(milliseconds: 300),
                           reverseDuration: const Duration(milliseconds: 300),
-                        ).buildTransitions(
-                            context, animation, secondaryAnimation, child);
+                        ).buildTransitions(context, animation, secondaryAnimation, child);
                       },
                       child: BodyContent(id: id, stars: stars),
                     );
@@ -66,24 +63,20 @@ final goRouterProvider = Provider<GoRouter>((ref) {
                   name: RoutePath.comments,
                   pageBuilder: (context, state) {
                     final id = state.pathParameters["id"].toString();
-                    final CommentInfoData comments =
-                        state.extra as CommentInfoData;
+                    final CommentInfoData comments = state.extra as CommentInfoData;
                     return CustomTransitionPage(
                       key: state.pageKey,
                       barrierDismissible: true,
                       transitionDuration: const Duration(milliseconds: 200),
-                      reverseTransitionDuration:
-                          const Duration(milliseconds: 200),
-                      transitionsBuilder:
-                          (context, animation, secondaryAnimation, child) {
+                      reverseTransitionDuration: const Duration(milliseconds: 200),
+                      transitionsBuilder: (context, animation, secondaryAnimation, child) {
                         return PageRouteAnimator(
                           child: child,
                           routeAnimation: RouteAnimation.bottomToTop,
                           curve: Curves.linear,
                           duration: const Duration(milliseconds: 200),
                           reverseDuration: const Duration(milliseconds: 200),
-                        ).buildTransitions(
-                            context, animation, secondaryAnimation, child);
+                        ).buildTransitions(context, animation, secondaryAnimation, child);
                       },
                       child: Comments(id: id, comments: comments),
                     );

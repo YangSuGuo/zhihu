@@ -57,10 +57,7 @@ class _DailyReportState extends ConsumerState<DailyReport> {
         onRefresh: () async {
           // 下拉刷新
           final newItems = await ref.read(getListProvider.future);
-          final oldIds = items
-              .map((StoriesData item) => item.id)
-              .toList()
-              .sublist(0, newItems.length);
+          final oldIds = items.map((StoriesData item) => item.id).toList().sublist(0, newItems.length);
           final newIds = newItems.map((StoriesData item) => item.id).toList();
           if (!listEquals(oldIds, newIds)) {
             setState(() {
@@ -84,8 +81,7 @@ class _DailyReportState extends ConsumerState<DailyReport> {
                 child: GestureDetector(
                   behavior: HitTestBehavior.translucent,
                   onTap: () {
-                    final History history =
-                        items[index].toHistory(DateTime.now().toString());
+                    final History history = items[index].toHistory(DateTime.now().toString());
                     ref.read(insertSubjectsHistoryProvider(history));
                     context.pushNamed(
                       RoutePath.bodyContent,

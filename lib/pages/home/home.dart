@@ -18,22 +18,20 @@ class Home extends StatelessWidget {
         elevation: 0,
         scrolledUnderElevation: 0,
         leadingWidth: 60,
-        title: const Text('知乎日报',
-            style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
+        title: const Text('知乎日报', style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25)),
         actions: [
           Padding(
               padding: const EdgeInsets.only(right: 20),
               child: IconButton(
                 onPressed: () {
                   showModalBottomDetail(
-                    height: 400,
-                    context: context,
-                    child: ListView(
-                        physics: const AlwaysScrollableScrollPhysics(
-                          parent: BouncingScrollPhysics(),
-                        ),
-                        padding: EdgeInsets.only(
-                            bottom: 28.h, left: 24.w, right: 24.w),
+                      height: 400,
+                      context: context,
+                      child: ListView(
+                          physics: const AlwaysScrollableScrollPhysics(
+                            parent: BouncingScrollPhysics(),
+                          ),
+                          padding: EdgeInsets.only(bottom: 28.h, left: 24.w, right: 24.w),
                           children: [
                             Container(
                               height: 225,
@@ -46,14 +44,10 @@ class Home extends StatelessWidget {
                                   Column(
                                     children: [
                                       Container(
-                                          width: MediaQuery.of(context)
-                                                  .size
-                                                  .width -
-                                              50,
+                                          width: MediaQuery.of(context).size.width - 50,
                                           height: 140,
                                           child: ClipRRect(
-                                            borderRadius:
-                                                BorderRadius.circular(35),
+                                            borderRadius: BorderRadius.circular(35),
                                             child: AspectRatio(
                                               aspectRatio: 1.5,
                                               child: Image.asset(
@@ -64,50 +58,35 @@ class Home extends StatelessWidget {
                                           )),
                                       Gap(5),
                                       Row(
-                                        mainAxisAlignment:
-                                            MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.center,
+                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                                        crossAxisAlignment: CrossAxisAlignment.center,
                                         children: [
                                           Row(
                                             children: [
                                               IconButton(
                                                 onPressed: () {},
                                                 icon: Icon(Icons.ice_skating),
-                                                color: Theme.of(context)
-                                                    .colorScheme
-                                                    .primary,
+                                                color: Theme.of(context).colorScheme.primary,
                                                 style: IconButton.styleFrom(
-                                                  backgroundColor:
-                                                      Theme.of(context)
-                                                          .colorScheme
-                                                          .onPrimary,
+                                                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
                                                 ),
                                               ),
                                               Column(
-                                                crossAxisAlignment:
-                                                    CrossAxisAlignment.start,
+                                                crossAxisAlignment: CrossAxisAlignment.start,
                                                 children: [
                                                   AutoSizeText(
                                                     "我的订阅",
                                                     style: TextStyle(
                                                         fontSize: 17,
-                                                        color: Theme.of(context)
-                                                            .colorScheme
-                                                            .onPrimary,
-                                                        fontWeight:
-                                                            FontWeight.w500),
+                                                        color: Theme.of(context).colorScheme.onPrimary,
+                                                        fontWeight: FontWeight.w500),
                                                   ),
                                                   AutoSizeText(
                                                     "我的订阅我的订",
                                                     style: TextStyle(
                                                         fontSize: 13,
-                                                        color: Theme.of(context)
-                                                            .colorScheme
-                                                            .onPrimary
-                                                            .withAlpha(210),
-                                                        fontWeight:
-                                                            FontWeight.w500),
+                                                        color: Theme.of(context).colorScheme.onPrimary.withAlpha(210),
+                                                        fontWeight: FontWeight.w500),
                                                   ),
                                                 ],
                                               )
@@ -119,14 +98,10 @@ class Home extends StatelessWidget {
                                               child: IconButton(
                                             onPressed: () {},
                                             icon: Icon(Icons.favorite_border),
-                                            color: Theme.of(context)
-                                                .colorScheme
-                                                .primary,
+                                            color: Theme.of(context).colorScheme.primary,
                                             style: IconButton.styleFrom(
                                               // fixedSize: Size(30, 30),
-                                              backgroundColor: Theme.of(context)
-                                                  .colorScheme
-                                                  .onPrimary,
+                                              backgroundColor: Theme.of(context).colorScheme.onPrimary,
                                             ),
                                           ))
                                         ],
@@ -162,12 +137,10 @@ class Home extends StatelessWidget {
               children: [
                 Text(
                   DateFormat('dd').format(dateTime),
-                  style: const TextStyle(
-                      fontSize: 23, fontWeight: FontWeight.bold),
+                  style: const TextStyle(fontSize: 23, fontWeight: FontWeight.bold),
                 ),
                 Text(DateFormat('MM月').format(dateTime),
-                    style: const TextStyle(
-                        fontSize: 11, fontWeight: FontWeight.bold)),
+                    style: const TextStyle(fontSize: 11, fontWeight: FontWeight.bold)),
               ])),
       const SizedBox(
           width: 1,

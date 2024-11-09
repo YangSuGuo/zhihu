@@ -41,10 +41,8 @@ class _CommentsState extends ConsumerState<Comments> {
       ),
       body: ListView(children: [
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          if (widget.comments.longComments != 0)
-            CommentsWidget(id: widget.id, isShort: false),
-          if (widget.comments.shortComments != 0)
-            CommentsWidget(id: widget.id, isShort: true),
+          if (widget.comments.longComments != 0) CommentsWidget(id: widget.id, isShort: false),
+          if (widget.comments.shortComments != 0) CommentsWidget(id: widget.id, isShort: true),
         ])
       ]),
     );
@@ -70,8 +68,7 @@ class CommentsWidget extends ConsumerWidget {
               padding: const EdgeInsets.only(left: 10, bottom: 0),
               child: Text(
                 '${comments.length} 条评论',
-                style:
-                    const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
+                style: const TextStyle(fontWeight: FontWeight.bold, fontSize: 16),
               ),
             ),
             ListView.builder(
@@ -85,9 +82,8 @@ class CommentsWidget extends ConsumerWidget {
           ],
         );
       },
-      loading: () => Center(
-          child: LoadingAnimationWidget.waveDots(
-              color: Theme.of(context).colorScheme.primary, size: 50)),
+      loading: () =>
+          Center(child: LoadingAnimationWidget.waveDots(color: Theme.of(context).colorScheme.primary, size: 50)),
       error: (Object err, StackTrace stack) {
         log('${err.toString()}\n$stack');
         return Text('Error: ${err.toString()}');

@@ -14,12 +14,9 @@ class Application extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    return DynamicColorBuilder(
-        builder: ((ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
-      lightColorScheme =
-          lightDynamic?.harmonized() ?? AppTheme.defaultLightColorScheme;
-      darkColorScheme =
-          darkDynamic?.harmonized() ?? AppTheme.defaultLightColorScheme;
+    return DynamicColorBuilder(builder: ((ColorScheme? lightDynamic, ColorScheme? darkDynamic) {
+      lightColorScheme = lightDynamic?.harmonized() ?? AppTheme.defaultLightColorScheme;
+      darkColorScheme = darkDynamic?.harmonized() ?? AppTheme.defaultLightColorScheme;
 
       return ScreenUtilInit(
           // 屏幕适配

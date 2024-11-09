@@ -1,4 +1,3 @@
-import 'dart:convert';
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
@@ -25,8 +24,7 @@ class StoriesModel {
     if (response.statusCode == 200) {
       final data = response.data;
       final List<dynamic> dataList = data['stories'];
-      final List<StoriesData> items =
-          dataList.map((json) => StoriesData.fromJson(json)).toList();
+      final List<StoriesData> items = dataList.map((json) => StoriesData.fromJson(json)).toList();
       final formattedDate = DateFormat('yyyyMMdd').format(DateTime.now());
       log('数据为: $formattedDate');
       return items;
@@ -42,8 +40,7 @@ class StoriesModel {
     if (response.statusCode == 200) {
       final data = response.data;
       final List<dynamic> dataList = data['stories'];
-      final List<StoriesData> items =
-          dataList.map((json) => StoriesData.fromJson(json)).toList();
+      final List<StoriesData> items = dataList.map((json) => StoriesData.fromJson(json)).toList();
       log('数据为: $formattedDate');
       return items;
     } else {
@@ -69,8 +66,7 @@ class StoriesModel {
     if (response.statusCode == 200) {
       final data = response.data;
       final List commentsJson = data['comments'];
-      List<CommentsData> comments =
-          commentsJson.map((json) => CommentsData.fromJson(json)).toList();
+      List<CommentsData> comments = commentsJson.map((json) => CommentsData.fromJson(json)).toList();
       return comments;
     } else {
       throw Exception('获取长评论数据失败');
@@ -79,13 +75,11 @@ class StoriesModel {
 
   // 短评论
   Future<List<CommentsData>> getShortComments(String id) async {
-    final response =
-        await dio.get('${Api.zhihuBody}$id${Api.zhihuShortComments}');
+    final response = await dio.get('${Api.zhihuBody}$id${Api.zhihuShortComments}');
     if (response.statusCode == 200) {
       final data = response.data;
       final List commentsJson = data['comments'];
-      List<CommentsData> comments =
-          commentsJson.map((json) => CommentsData.fromJson(json)).toList();
+      List<CommentsData> comments = commentsJson.map((json) => CommentsData.fromJson(json)).toList();
       return comments;
     } else {
       throw Exception('获取长评论数据失败');
@@ -117,8 +111,7 @@ Future<CommentInfoData> getCommentsInfo(GetCommentsInfoRef ref, int id) async {
 }
 
 @riverpod
-Future<List<CommentsData>> getComments(
-    GetCommentsRef ref, String id, bool isShort) async {
+Future<List<CommentsData>> getComments(GetCommentsRef ref, String id, bool isShort) async {
   final storiesModel = ref.read(storiesModelProvider);
   if (isShort) {
     return storiesModel.getShortComments(id);

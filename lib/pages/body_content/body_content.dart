@@ -25,8 +25,7 @@ class BodyContent extends ConsumerStatefulWidget {
   ConsumerState<ConsumerStatefulWidget> createState() => _BodyContentState();
 }
 
-class _BodyContentState extends ConsumerState<BodyContent>
-    with TickerProviderStateMixin {
+class _BodyContentState extends ConsumerState<BodyContent> with TickerProviderStateMixin {
   /// 文章
   CommentInfoData? comments; // 评论信息
   int id = 9766161; // 初始值 id
@@ -41,8 +40,7 @@ class _BodyContentState extends ConsumerState<BodyContent>
 
   // 评论 收藏初始化
   Future<void> initialData(int id) async {
-    CommentInfoData data =
-        await ref.read(getCommentsInfoProvider(id).future); // 评论数据
+    CommentInfoData data = await ref.read(getCommentsInfoProvider(id).future); // 评论数据
     final bool result = await ref.read(isSavedProvider(id).future); // 收藏状态
     setState(() {
       stars = result;
@@ -66,9 +64,8 @@ class _BodyContentState extends ConsumerState<BodyContent>
         contentBlockers: [
           ContentBlocker(
               trigger: ContentBlockerTrigger(urlFilter: ".*"),
-              action: ContentBlockerAction(
-                  type: ContentBlockerActionType.CSS_DISPLAY_NONE,
-                  selector: '.Daily,.view-more'))
+              action:
+                  ContentBlockerAction(type: ContentBlockerActionType.CSS_DISPLAY_NONE, selector: '.Daily,.view-more'))
         ]);
     // 浏览器下拉刷新操作
     pullToRefreshController = PullToRefreshController(
@@ -76,8 +73,7 @@ class _BodyContentState extends ConsumerState<BodyContent>
         if (Platform.isAndroid) {
           webViewController?.reload();
         } else if (Platform.isIOS) {
-          webViewController?.loadUrl(
-              urlRequest: URLRequest(url: await webViewController?.getUrl()));
+          webViewController?.loadUrl(urlRequest: URLRequest(url: await webViewController?.getUrl()));
         }
       },
     );
@@ -105,8 +101,7 @@ class _BodyContentState extends ConsumerState<BodyContent>
         // 用于添加集成到 flutter widget 树中的内联原生 WebView
         child: InAppWebView(
           key: webViewKey,
-          initialUrlRequest:
-              URLRequest(url: WebUri("https://daily.zhihu.com/story/$id")),
+          initialUrlRequest: URLRequest(url: WebUri("https://daily.zhihu.com/story/$id")),
           initialSettings: options,
           pullToRefreshController: pullToRefreshController,
           onWebViewCreated: (controller) {
@@ -121,22 +116,18 @@ class _BodyContentState extends ConsumerState<BodyContent>
       OperateBar(
         stars: stars,
         url: 'https://daily.zhihu.com/story/$id',
-        ctrl: AnimationController(
-            vsync: this, duration: const Duration(seconds: 1)),
+        ctrl: AnimationController(vsync: this, duration: const Duration(seconds: 1)),
         comments: comments,
         webViewController: webViewController,
         // 收藏事件
         onStarChange: (newStarState) async {
-          newStarState
-              ? ref.read(insertStarsProvider(widget.stars))
-              : ref.read(deleteStarsProvider(id));
+          newStarState ? ref.read(insertStarsProvider(widget.stars)) : ref.read(deleteStarsProvider(id));
           setState(() => stars = newStarState);
         },
         // 评论事件
         onPressed: () {
           if (comments!.comments != 0) {
-            context.pushNamed(RoutePath.comments,
-                pathParameters: {"id": id.toString()}, extra: comments);
+            context.pushNamed(RoutePath.comments, pathParameters: {"id": id.toString()}, extra: comments);
           }
         },
       )

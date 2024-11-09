@@ -14,8 +14,7 @@ Dio dio(DioRef ref) {
       sendTimeout: const Duration(seconds: 20),
       headers: {
         'Host': 'news-at.zhihu.com',
-        'User-Agent':
-            'YangSuGuo/flutter_news 1.0.0 (https://github.com/YangSuGuo/flutter_news)',
+        'User-Agent': 'YangSuGuo/flutter_news 1.0.0 (https://github.com/YangSuGuo/flutter_news)',
         'Accept': 'application/json',
         'Content-Type': 'application/json',
       }))

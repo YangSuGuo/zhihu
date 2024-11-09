@@ -1,11 +1,11 @@
 import 'dart:async';
 
 import 'package:floor/floor.dart';
+import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:zhihu/db/database/dao/history_dao.dart';
 import 'package:zhihu/db/database/dao/stars_dao.dart';
 import 'package:zhihu/db/database/entity/history.dart';
 import 'package:zhihu/db/database/entity/stars.dart';
-import 'package:sqflite/sqflite.dart' as sqflite;
 
 part 'database.g.dart';
 

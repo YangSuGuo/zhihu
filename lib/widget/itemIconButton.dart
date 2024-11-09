@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 class Itemiconbutton extends StatelessWidget {
-  const Itemiconbutton(
-      {super.key, this.icon, this.onPressed, this.data, this.size});
+  const Itemiconbutton({super.key, this.icon, this.onPressed, this.data, this.size});
 
   // 语义标签
   final IconData? icon;

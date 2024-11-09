@@ -1,10 +1,8 @@
 import 'dart:convert';
 
-CommentInfoData commentInfoDataFromJson(String str) =>
-    CommentInfoData.fromJson(json.decode(str));
+CommentInfoData commentInfoDataFromJson(String str) => CommentInfoData.fromJson(json.decode(str));
 
-String commentInfoDataToJson(CommentInfoData data) =>
-    json.encode(data.toJson());
+String commentInfoDataToJson(CommentInfoData data) => json.encode(data.toJson());
 
 class CommentInfoData {
   late int? longComments;
@@ -19,18 +17,13 @@ class CommentInfoData {
     this.comments,
   });
 
-  factory CommentInfoData.fromJson(Map<String, dynamic> json) =>
-      CommentInfoData(
+  factory CommentInfoData.fromJson(Map<String, dynamic> json) => CommentInfoData(
         longComments: json['long_comments'],
         popularity: json['popularity'],
         shortComments: json['short_comments'],
         comments: json['comments'],
       );
 
-  Map<String, dynamic> toJson() => {
-        'long_comments': longComments,
-        'popularity': popularity,
-        'short_comments': shortComments,
-        'comments': comments
-      };
+  Map<String, dynamic> toJson() =>
+      {'long_comments': longComments, 'popularity': popularity, 'short_comments': shortComments, 'comments': comments};
 }

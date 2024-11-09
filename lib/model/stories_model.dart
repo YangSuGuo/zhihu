@@ -3,11 +3,9 @@ import 'dart:convert';
 import 'package:zhihu/db/database/entity/history.dart';
 import 'package:zhihu/db/database/entity/stars.dart';
 
-StoriesData storiesDataFromJson(String str) =>
-    StoriesData.fromJson(json.decode(str));
+StoriesData storiesDataFromJson(String str) => StoriesData.fromJson(json.decode(str));
 
-StoriesData storiesDataFromJsonInside(String str) =>
-    StoriesData.fromJsonInside(json.decode(str));
+StoriesData storiesDataFromJsonInside(String str) => StoriesData.fromJsonInside(json.decode(str));
 
 String storiesDataToJson(StoriesData data) => json.encode(data.toJson());
 
@@ -47,34 +45,16 @@ class StoriesData {
         gaPrefix: json['ga_prefix'],
       );
 
-  Map<String, dynamic> toJson() => {
-        'id': id,
-        'title': title,
-        'hint': hint,
-        'image': image,
-        'url': url,
-        'gaPrefix': gaPrefix
-      };
+  Map<String, dynamic> toJson() =>
+      {'id': id, 'title': title, 'hint': hint, 'image': image, 'url': url, 'gaPrefix': gaPrefix};
 
   Stars toStars(String readingTime) {
     return Stars(
-        id: id,
-        title: title,
-        hint: hint,
-        image: image,
-        url: url,
-        gaPrefix: gaPrefix,
-        readingTime: readingTime);
+        id: id, title: title, hint: hint, image: image, url: url, gaPrefix: gaPrefix, readingTime: readingTime);
   }
 
   History toHistory(String readingTime) {
     return History(
-        id: id,
-        title: title,
-        hint: hint,
-        image: image,
-        url: url,
-        gaPrefix: gaPrefix,
-        readingTime: readingTime);
+        id: id, title: title, hint: hint, image: image, url: url, gaPrefix: gaPrefix, readingTime: readingTime);
   }
 }

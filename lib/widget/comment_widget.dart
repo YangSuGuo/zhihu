@@ -38,14 +38,10 @@ class CommentWidget extends StatelessWidget {
                 padding: const EdgeInsets.only(top: 5),
                 child: Container(
                     width: MediaQuery.of(context).size.width - 40,
-                    padding: const EdgeInsets.only(
-                        top: 5, left: 5, right: 6, bottom: 6),
+                    padding: const EdgeInsets.only(top: 5, left: 5, right: 6, bottom: 6),
                     decoration: BoxDecoration(
                       // color: const Color.fromRGBO(233, 233, 233, 0.4),
-                      color: Theme.of(context)
-                          .colorScheme
-                          .primaryContainer
-                          .withOpacity(0.2),
+                      color: Theme.of(context).colorScheme.primaryContainer.withOpacity(0.2),
                       borderRadius: BorderRadius.circular(6),
                     ),
                     child: RichText(
@@ -53,14 +49,12 @@ class CommentWidget extends StatelessWidget {
                         text: TextSpan(
                             text: '@ ${comment.replyTo?.author}︰',
                             style: TextStyle(
-                                color: Theme.of(context).textTheme.bodySmall!.color,
-                                fontWeight: FontWeight.bold),
+                                color: Theme.of(context).textTheme.bodySmall!.color, fontWeight: FontWeight.bold),
                             children: [
                               TextSpan(
                                   text: comment.replyTo?.content,
                                   style: TextStyle(
-                                    color:
-                                    Theme.of(context).textTheme.bodySmall!.color,
+                                    color: Theme.of(context).textTheme.bodySmall!.color,
                                     fontWeight: FontWeight.normal,
                                   ))
                             ])))),

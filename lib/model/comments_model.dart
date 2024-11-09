@@ -1,7 +1,6 @@
 import 'dart:convert';
 
-CommentsData commentsDataFromJson(String str) =>
-    CommentsData.fromJson(json.decode(str));
+CommentsData commentsDataFromJson(String str) => CommentsData.fromJson(json.decode(str));
 
 class CommentsData {
   late String? author;

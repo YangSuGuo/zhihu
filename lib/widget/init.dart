@@ -12,8 +12,7 @@ class Init extends StatelessWidget {
   /// 是否深色模式
   bool isDarkMode(BuildContext context) {
     Theme.of(context);
-    return View.of(context).platformDispatcher.platformBrightness ==
-        Brightness.dark;
+    return View.of(context).platformDispatcher.platformBrightness == Brightness.dark;
   }
 
   @override
