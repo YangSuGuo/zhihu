@@ -1,4 +1,5 @@
 import 'package:floor/floor.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:zhihu/db/database/db.dart';
 import 'package:zhihu/db/database/entity/stars.dart';
@@ -25,19 +26,25 @@ abstract class StarsDAO {
 }
 
 @riverpod
-Future<void> deleteStars(DeleteStarsRef ref, int id) async {
+Future<List<Stars>> findAllSubjectsStars(Ref ref) async {
+  final db = ref.read(dbProvider);
+  return await db.StarsDao.findAllSubjectsStars();
+}
+
+@riverpod
+Future<void> deleteStars(Ref ref, int id) async {
   final db = ref.read(dbProvider);
   await db.StarsDao.deleteStars(id);
 }
 
 @riverpod
-Future<void> insertStars(InsertStarsRef ref, Stars stars) async {
+Future<void> insertStars(Ref ref, Stars stars) async {
   final db = ref.read(dbProvider);
   await db.StarsDao.insertStars(stars);
 }
 
 @riverpod
-Future<bool> isSaved(IsSavedRef ref, int id) async {
+Future<bool> isSaved(Ref ref, int id) async {
   final db = ref.read(dbProvider);
   bool isSaved = await db.StarsDao.selectStars(id) ?? false;
   return isSaved;

@@ -60,4 +60,6 @@ flutter:
 
   assets:
     - assets/images/png/macos_3840x2160.jpg
+    - assets/images/icon/daily.zhihu-1024x1024.png
+    - assets/images/png/ConneR.png
 

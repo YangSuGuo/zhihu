@@ -89,7 +89,11 @@ class _DailyReportState extends ConsumerState<DailyReport> {
                       extra: items[index],
                     );
                   },
-                  child: Item(item: items[index]),
+                  child: Item(
+                    title: items[index].title,
+                    hint: items[index].hint ?? "",
+                    image: items[index].image ?? "",
+                  ),
                 ));
           },
         ));

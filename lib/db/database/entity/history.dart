@@ -4,7 +4,7 @@ import 'package:floor/floor.dart';
 class History {
   @PrimaryKey(autoGenerate: true)
   final int? id;
-  final String? title;
+  final String title;
   final String? hint;
   final String? url;
   final String? image;
@@ -13,7 +13,7 @@ class History {
 
   History({
     this.id,
-    this.title,
+    required this.title,
     this.hint,
     this.url,
     this.image,

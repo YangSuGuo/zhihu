@@ -1,10 +1,13 @@
-import 'package:auto_size_text/auto_size_text.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
+import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
 import 'package:zhihu/pages/daily_report/daily_report.dart';
 import 'package:zhihu/pages/main.dart';
+import 'package:zhihu/routes/app_routes.dart';
+import 'package:zhihu/widget/bulletin_board.dart';
+import 'package:zhihu/widget/page_button.dart';
 import 'package:zhihu/widget/show_modal_bottom_detail.dart';
 
 class Home extends StatelessWidget {
@@ -25,93 +28,53 @@ class Home extends StatelessWidget {
               child: IconButton(
                 onPressed: () {
                   showModalBottomDetail(
-                      height: 400,
+                      height: 380,
                       context: context,
-                      child: ListView(
-                          physics: const AlwaysScrollableScrollPhysics(
-                            parent: BouncingScrollPhysics(),
-                          ),
-                          padding: EdgeInsets.only(bottom: 28.h, left: 24.w, right: 24.w),
-                          children: [
-                            Container(
-                              height: 225,
-                              padding: const EdgeInsets.all(16),
-                              decoration: BoxDecoration(
-                                  color: Theme.of(context).colorScheme.primary,
-                                  borderRadius: BorderRadius.circular(35)),
-                              child: Column(
-                                children: [
-                                  Column(
-                                    children: [
-                                      Container(
-                                          width: MediaQuery.of(context).size.width - 50,
-                                          height: 140,
-                                          child: ClipRRect(
-                                            borderRadius: BorderRadius.circular(35),
-                                            child: AspectRatio(
-                                              aspectRatio: 1.5,
-                                              child: Image.asset(
-                                                "assets/images/png/macos_3840x2160.jpg",
-                                                fit: BoxFit.cover,
-                                              ),
-                                            ),
-                                          )),
-                                      Gap(5),
-                                      Row(
-                                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                        crossAxisAlignment: CrossAxisAlignment.center,
-                                        children: [
-                                          Row(
-                                            children: [
-                                              IconButton(
-                                                onPressed: () {},
-                                                icon: Icon(Icons.ice_skating),
-                                                color: Theme.of(context).colorScheme.primary,
-                                                style: IconButton.styleFrom(
-                                                  backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                                                ),
-                                              ),
-                                              Column(
-                                                crossAxisAlignment: CrossAxisAlignment.start,
-                                                children: [
-                                                  AutoSizeText(
-                                                    "我的订阅",
-                                                    style: TextStyle(
-                                                        fontSize: 17,
-                                                        color: Theme.of(context).colorScheme.onPrimary,
-                                                        fontWeight: FontWeight.w500),
-                                                  ),
-                                                  AutoSizeText(
-                                                    "我的订阅我的订",
-                                                    style: TextStyle(
-                                                        fontSize: 13,
-                                                        color: Theme.of(context).colorScheme.onPrimary.withAlpha(210),
-                                                        fontWeight: FontWeight.w500),
-                                                  ),
-                                                ],
-                                              )
-                                            ],
-                                          ),
-                                          SizedBox(
-                                              // width: 20,
-                                              // height: 20,
-                                              child: IconButton(
-                                            onPressed: () {},
-                                            icon: Icon(Icons.favorite_border),
-                                            color: Theme.of(context).colorScheme.primary,
-                                            style: IconButton.styleFrom(
-                                              // fixedSize: Size(30, 30),
-                                              backgroundColor: Theme.of(context).colorScheme.onPrimary,
-                                            ),
-                                          ))
-                                        ],
-                                      )
-                                    ],
-                                  )
-                                ],
-                              ),
-                            )
-                          ]));
+                      child: Padding(
+                          padding: EdgeInsets.only(
+                              bottom: 28.h, left: 24.w, right: 24.w),
+                          child: Column(
+                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                              children: [
+                                BulletinBoard(
+                                  imgUrl:
+                                      "assets/images/png/macos_3840x2160.jpg",
+                                  color: colorScheme.primary,
+                                  title: "知乎日报",
+                                  subtitle: "关于APP的介绍",
+                                ),
+                                Row(
+                                  children: [
+                                    Flexible(
+                                        child: PageButton(
+                                      onPressed: () {
+                                        context.pop();
+                                        context.pushNamed(
+                                            RoutePath.historyFavorites,
+                                            pathParameters: {"title": "历史记录"});
+                                      },
+                                      color:
+                                          colorScheme.primary.withOpacity(0.85),
+                                      title: "历史记录",
+                                      icon: Icons.access_time,
+                                    )),
+                                    Gap(10),
+                                    Flexible(
+                                        child: PageButton(
+                                      onPressed: () {
+                                        context.pop();
+                                        context.pushNamed(
+                                            RoutePath.historyFavorites,
+                                            pathParameters: {"title": "收藏记录"});
+                                      },
+                                      color:
+                                          colorScheme.primary.withOpacity(0.85),
+                                      title: "收藏记录",
+                                      icon: Icons.egg_alt,
+                                    )),
+                                  ],
+                                )
+                              ])));
                 },
                 icon: const Icon(Icons.settings, size: 26),
                 tooltip: '设置',

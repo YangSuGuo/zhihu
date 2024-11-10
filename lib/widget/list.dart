@@ -1,14 +1,17 @@
 import 'package:flutter/material.dart';
-import 'package:zhihu/model/stories_model.dart';
 import 'package:zhihu/widget/network_img.dart';
 
 class Item extends StatelessWidget {
   const Item({
-    Key? key,
-    required this.item,
-  }) : super(key: key);
+    super.key,
+    required this.title,
+    required this.hint,
+    this.image,
+  });
 
-  final StoriesData item;
+  final String title;
+  final String hint;
+  final String? image;
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +27,7 @@ class Item extends StatelessWidget {
                       children: [
                         Padding(
                             padding: const EdgeInsets.only(top: 5, bottom: 5, left: 5),
-                            child: Text(item.title ?? '',
+                            child: Text(title,
                                 softWrap: true,
                                 maxLines: 2,
                                 overflow: TextOverflow.ellipsis,
@@ -32,16 +35,16 @@ class Item extends StatelessWidget {
                         Expanded(
                             child: Padding(
                           padding: const EdgeInsets.only(left: 5),
-                          child: Text(item.hint ?? '',
+                          child: Text(hint,
                               softWrap: false,
                               maxLines: 1,
                               overflow: TextOverflow.ellipsis,
                               style: const TextStyle(color: Colors.grey, fontSize: 13.0)),
                         ))
                       ])))),
-      if (item.image != null)
+      if (image != null)
         NetworkImg(
-          src: item.image,
+          src: image,
           width: 80,
           height: 80,
           radius: 2.0,

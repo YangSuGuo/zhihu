@@ -12,7 +12,7 @@ String storiesDataToJson(StoriesData data) => json.encode(data.toJson());
 /// 文章列表
 class StoriesData {
   late int? id;
-  late String? title;
+  late String title;
   late String? hint;
   late String? image;
   late String? url;
@@ -20,7 +20,7 @@ class StoriesData {
 
   StoriesData({
     this.id,
-    this.title,
+    required this.title,
     this.hint,
     this.image,
     this.url,
