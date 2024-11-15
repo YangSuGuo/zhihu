@@ -1,5 +1,5 @@
 flutter_native_splash:
-  image: assets/images/png/macos_3840x2160.jpg
+#  image: assets/images/png/macos_3840x2160.jpg
   color: "#FBFCFF"
   color_dark: "#181C1F"
   android_gravity: center
@@ -7,8 +7,7 @@ flutter_native_splash:
   web: false
 
   android_12:
-   image: assets/images/png/macos_3840x2160.jpg
+#   image: assets/images/png/macos_3840x2160.jpg
    color: "#FBFCFF"
    color_dark: "#181C1F"
-
 
