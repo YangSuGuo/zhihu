@@ -1,9 +1,10 @@
 import 'package:floor/floor.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
-import 'package:zhihu/db/database/db.dart';
 import 'package:zhihu/db/database/entity/history.dart';
 import 'package:zhihu/db/database/entity/stars.dart';
+
+import '../database.dart';
 
 part 'history_dao.g.dart';
 

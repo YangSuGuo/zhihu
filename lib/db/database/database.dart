@@ -1,6 +1,8 @@
 import 'dart:async';
 
 import 'package:floor/floor.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:sqflite/sqflite.dart' as sqflite;
 import 'package:zhihu/db/database/dao/history_dao.dart';
 import 'package:zhihu/db/database/dao/stars_dao.dart';
@@ -22,4 +24,9 @@ abstract class AppDatabase extends FloorDatabase {
     await database.execute('DELETE FROM stars');
     await database.execute('DELETE FROM history');
   }
+}
+
+@Riverpod(keepAlive: true)
+AppDatabase db(Ref ref) {
+  return throw UnimplementedError();
 }

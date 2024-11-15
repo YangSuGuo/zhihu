@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:zhihu/Application.dart';
 import 'package:zhihu/db/database/database.dart';
-import 'package:zhihu/db/database/db.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:zhihu/widget/doubleCheckConfirmation.dart';
 import 'package:zhihu/widget/init.dart';
 
 class Main extends StatelessWidget {
