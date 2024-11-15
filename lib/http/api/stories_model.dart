@@ -1,6 +1,7 @@
 import 'dart:developer';
 
 import 'package:dio/dio.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:intl/intl.dart';
 import 'package:riverpod_annotation/riverpod_annotation.dart';
 import 'package:zhihu/http/api/api.dart';
@@ -88,30 +89,30 @@ class StoriesModel {
 }
 
 @riverpod
-StoriesModel storiesModel(StoriesModelRef ref) => StoriesModel(
+StoriesModel storiesModel(Ref ref) => StoriesModel(
       dio: ref.watch(dioProvider),
     );
 
 @riverpod
-Future<List<StoriesData>> getList(GetListRef ref) async {
+Future<List<StoriesData>> getList(Ref ref) async {
   final storiesModel = ref.read(storiesModelProvider);
   return storiesModel.getList();
 }
 
 @riverpod
-Future<List<StoriesData>> getOldList(GetOldListRef ref, DateTime date) async {
+Future<List<StoriesData>> getOldList(Ref ref, DateTime date) async {
   final storiesModel = ref.read(storiesModelProvider);
   return storiesModel.getOldList(date);
 }
 
 @riverpod
-Future<CommentInfoData> getCommentsInfo(GetCommentsInfoRef ref, int id) async {
+Future<CommentInfoData> getCommentsInfo(Ref ref, int id) async {
   final storiesModel = ref.read(storiesModelProvider);
   return storiesModel.getCommentsInfo(id);
 }
 
 @riverpod
-Future<List<CommentsData>> getComments(GetCommentsRef ref, String id, bool isShort) async {
+Future<List<CommentsData>> getComments(Ref ref, String id, bool isShort) async {
   final storiesModel = ref.read(storiesModelProvider);
   if (isShort) {
     return storiesModel.getShortComments(id);

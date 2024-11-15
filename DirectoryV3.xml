@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ <trees>
+     <tree path="/lib/model/comments_model.dart" title="评论"/>
+     <tree path="/lib/model/stories_model.dart" title="日报"/>
+     <tree path="/lib/model/commentsinfo_model.dart" title="评论统计"/>
+     <tree path="/lib/widget" title="组件"/>
+     <tree path="/lib/themes" title="主题"/>
+     <tree path="/lib/routes" title="路由"/>
+     <tree path="/lib/pages" title="页面"/>
+     <tree path="/lib/model" title="模型"/>
+     <tree path="/lib/http" title="网络"/>
+     <tree path="/lib/db" title="数据库"/>
+     <tree path="/lib/pages/home" title="首页"/>
+    <tree path="/lib/pages/comments" title="评论"/>
+    <tree path="/lib/pages/body_content" title="文章"/>
+    <tree path="/lib/pages/daily_report" title="列表" extension="" presentableText="" tooltipTitle="" icon=""
+          textColor="" backgroundColor=""/>
+    <tree path="/lib/pages/about" title="关于"/>
+    <tree path="/lib/pages/history_favorites" title="历史_收藏"/>
+</trees>

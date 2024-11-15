@@ -24,6 +24,7 @@ class Application extends ConsumerWidget {
           minTextAdapt: true,
           splitScreenMode: true,
           builder: (context, child) {
+            final router = ref.watch(goRouterProvider);
             return MaterialApp.router(
               title: "知乎日报",
               // 主题
@@ -31,7 +32,7 @@ class Application extends ConsumerWidget {
               theme: AppTheme.themeUtils(lightColorScheme),
               darkTheme: AppTheme.themeUtils(darkColorScheme),
               // 路由
-              routerConfig: ref.watch(goRouterProvider),
+              routerConfig: router,
               builder: FlutterSmartDialog.init(),
               debugShowCheckedModeBanner: false,
             );

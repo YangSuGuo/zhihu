@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_smart_dialog/flutter_smart_dialog.dart';
 
 class Init extends StatelessWidget {
   const Init({
@@ -17,6 +18,8 @@ class Init extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    DateTime? lastPressedAt; //上次点击时间
+
     /// 沉浸模式（全屏模式）
     SystemChrome.setEnabledSystemUIMode(SystemUiMode.edgeToEdge);
     SystemChrome.setSystemUIOverlayStyle(
@@ -35,6 +38,20 @@ class Init extends StatelessWidget {
               systemNavigationBarColor: Colors.transparent,
             ),
     );
-    return child;
+    return PopScope(
+      canPop: false,
+      onPopInvokedWithResult: (bool didPop, dynamic result) async {
+        if (didPop) return;
+        SmartDialog.showToast("再次点击退出");
+        if (lastPressedAt == null ||
+            DateTime.now().difference(lastPressedAt!) >
+                const Duration(seconds: 1)) {
+          lastPressedAt = DateTime.now();
+          return;
+        }
+        SystemNavigator.pop();
+      },
+      child: child,
+    );
   }
 }
