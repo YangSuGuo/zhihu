@@ -7,42 +7,31 @@ import 'package:zhihu/http/api/stories_model.dart';
 import 'package:zhihu/model/commentsinfo_model.dart';
 import 'package:zhihu/widget/comment_widget.dart';
 
-class Comments extends ConsumerStatefulWidget {
+class Comments extends ConsumerWidget {
+  final String id;
+  final CommentInfoData comments;
+
   const Comments({
     super.key,
     required this.id,
     required this.comments,
   });
 
-  final String id;
-  final CommentInfoData comments;
-
   @override
-  ConsumerState createState() => _CommentsState();
-}
-
-class _CommentsState extends ConsumerState<Comments> {
-  late final String commentsCount;
-
-  @override
-  void initState() {
-    super.initState();
-    commentsCount = widget.comments.comments.toString();
-  }
-
-  @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
         automaticallyImplyLeading: true,
         elevation: 0,
-        title: Text('$commentsCount 条评论'),
+        title: Text('${comments.comments} 条评论'),
       ),
       body: ListView(children: [
         Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-          if (widget.comments.longComments != 0) CommentsWidget(id: widget.id, isShort: false),
-          if (widget.comments.shortComments != 0) CommentsWidget(id: widget.id, isShort: true),
+          if (comments.longComments != 0)
+            CommentsWidget(id: id, isShort: false),
+          if (comments.shortComments != 0)
+            CommentsWidget(id: id, isShort: true),
         ])
       ]),
     );
