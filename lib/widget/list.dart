@@ -7,17 +7,24 @@ class Item extends StatelessWidget {
     required this.title,
     required this.hint,
     this.image,
+    this.onTap,
   });
 
   final String title;
   final String hint;
   final String? image;
+  final VoidCallback? onTap;
 
   @override
   Widget build(BuildContext context) {
-    return Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      Expanded(
-          child: SizedBox(
+    return GestureDetector(
+        behavior: HitTestBehavior.translucent,
+        onTap: onTap,
+        child: Padding(
+            padding: const EdgeInsets.only(left: 5, right: 5, bottom: 2),
+            child: Row(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Expanded(
+                  child: SizedBox(
               height: 108,
               child: Padding(
                   padding: const EdgeInsets.only(top: 2, left: 3, right: 5),
@@ -50,6 +57,6 @@ class Item extends StatelessWidget {
           radius: 2.0,
           fit: BoxFit.cover,
         )
-    ]);
+            ])));
   }
 }

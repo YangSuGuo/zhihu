@@ -3,7 +3,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:gap/gap.dart';
 import 'package:go_router/go_router.dart';
 import 'package:intl/intl.dart';
-import 'package:zhihu/pages/daily_report/daily_report.dart';
+import 'package:zhihu/pages/home/daily_report.dart';
 import 'package:zhihu/pages/main.dart';
 import 'package:zhihu/routes/app_routes.dart';
 import 'package:zhihu/widget/bulletin_board.dart';
@@ -84,7 +84,7 @@ class Home extends StatelessWidget {
         foregroundColor: colorScheme.onSurface,
         leading: leadingTime(colorScheme),
       ),
-      body: const DailyReport(),
+      body: const Daily(),
     );
   }
 
