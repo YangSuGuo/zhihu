@@ -46,7 +46,7 @@ class _AboutSectionState extends State<AboutSection> {
                           style: Theme.of(context).textTheme.headlineSmall,
                         ),
                         Text(
-                          "1.0",
+                          "1.0.1",
                           style: Theme.of(context).textTheme.labelLarge,
                         )
                       ],
