@@ -22,8 +22,6 @@ final findAllSubjectsHistoryProvider =
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef FindAllSubjectsHistoryRef = AutoDisposeFutureProviderRef<List<Stars>>;
 String _$deleteAllSubjectsHistoryHash() =>
     r'960b7d937ba7e5af5ef7487d552fe56119abdd7b';
@@ -41,8 +39,6 @@ final deleteAllSubjectsHistoryProvider =
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef DeleteAllSubjectsHistoryRef = AutoDisposeFutureProviderRef<void>;
 String _$insertSubjectsHistoryHash() =>
     r'8114ce418db59b5b94c9b32443a10cc05a91a183';
@@ -181,8 +177,6 @@ class InsertSubjectsHistoryProvider extends AutoDisposeFutureProvider<void> {
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin InsertSubjectsHistoryRef on AutoDisposeFutureProviderRef<void> {
   /// The parameter `history` of this provider.
   History get history;
@@ -197,4 +191,4 @@ class _InsertSubjectsHistoryProviderElement
   History get history => (origin as InsertSubjectsHistoryProvider).history;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

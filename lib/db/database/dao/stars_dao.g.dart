@@ -22,8 +22,6 @@ final findAllSubjectsStarsProvider =
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef FindAllSubjectsStarsRef = AutoDisposeFutureProviderRef<List<Stars>>;
 String _$deleteStarsHash() => r'dba875bf53cd6f7dd793b8286dffd7e7afd68766';
 
@@ -161,8 +159,6 @@ class DeleteStarsProvider extends AutoDisposeFutureProvider<void> {
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin DeleteStarsRef on AutoDisposeFutureProviderRef<void> {
   /// The parameter `id` of this provider.
   int get id;
@@ -291,8 +287,6 @@ class InsertStarsProvider extends AutoDisposeFutureProvider<void> {
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin InsertStarsRef on AutoDisposeFutureProviderRef<void> {
   /// The parameter `stars` of this provider.
   Stars get stars;
@@ -420,8 +414,6 @@ class IsSavedProvider extends AutoDisposeFutureProvider<bool> {
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin IsSavedRef on AutoDisposeFutureProviderRef<bool> {
   /// The parameter `id` of this provider.
   int get id;
@@ -435,4 +427,4 @@ class _IsSavedProviderElement extends AutoDisposeFutureProviderElement<bool>
   int get id => (origin as IsSavedProvider).id;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

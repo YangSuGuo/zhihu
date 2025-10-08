@@ -20,7 +20,7 @@ Future<T?> showModalBottomDetail<T>({
       ),
     ),
     builder: (BuildContext context) {
-      return Container(
+      return SizedBox(
           height: height,
           child: Column(
             children: [

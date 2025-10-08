@@ -19,8 +19,6 @@ final storiesModelProvider = AutoDisposeProvider<StoriesModel>.internal(
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef StoriesModelRef = AutoDisposeProviderRef<StoriesModel>;
 String _$getListHash() => r'f028e7fdda060170b947b858bb951ed8403b294c';
 
@@ -35,8 +33,6 @@ final getListProvider = AutoDisposeFutureProvider<List<StoriesData>>.internal(
   allTransitiveDependencies: null,
 );
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 typedef GetListRef = AutoDisposeFutureProviderRef<List<StoriesData>>;
 String _$getOldListHash() => r'94f1e8532959acfcc136313c7ae94d973f5fcf5d';
 
@@ -174,8 +170,6 @@ class GetOldListProvider extends AutoDisposeFutureProvider<List<StoriesData>> {
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin GetOldListRef on AutoDisposeFutureProviderRef<List<StoriesData>> {
   /// The parameter `date` of this provider.
   DateTime get date;
@@ -306,8 +300,6 @@ class GetCommentsInfoProvider
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin GetCommentsInfoRef on AutoDisposeFutureProviderRef<CommentInfoData> {
   /// The parameter `id` of this provider.
   int get id;
@@ -450,8 +442,6 @@ class GetCommentsProvider
   }
 }
 
-@Deprecated('Will be removed in 3.0. Use Ref instead')
-// ignore: unused_element
 mixin GetCommentsRef on AutoDisposeFutureProviderRef<List<CommentsData>> {
   /// The parameter `id` of this provider.
   String get id;
@@ -471,4 +461,4 @@ class _GetCommentsProviderElement
   bool get isShort => (origin as GetCommentsProvider).isShort;
 }
 // ignore_for_file: type=lint
-// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member, deprecated_member_use_from_same_package
+// ignore_for_file: subtype_of_sealed_class, invalid_use_of_internal_member, invalid_use_of_visible_for_testing_member

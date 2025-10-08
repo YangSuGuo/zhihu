@@ -7,7 +7,7 @@ class AppTheme {
       useMaterial3: true,
       brightness: colorScheme.brightness,
       fontFamily: null,
-      scaffoldBackgroundColor: colorScheme.background,
+      scaffoldBackgroundColor: colorScheme.surface,
       canvasColor: colorScheme.surface,
     );
     return theme;
